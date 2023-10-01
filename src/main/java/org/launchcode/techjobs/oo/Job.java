@@ -23,11 +23,13 @@ public class Job {
 
 
     public Job(String name, Employer employer, Location location, PositionType positionType, CoreCompetency coreCompetency) {
+        this();
         this.employer = employer;
         this.location = location;
         this.coreCompetency = coreCompetency;
         this.positionType = positionType;
         this.name = name;
+
     }
 
 
@@ -35,7 +37,7 @@ public class Job {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Job job)) return false;
-        return id == job.getId();
+        return getId() == job.getId();
     }
 
     @Override
@@ -98,4 +100,6 @@ public class Job {
     public int getId() {
         return id;
     }
+
+
 }
