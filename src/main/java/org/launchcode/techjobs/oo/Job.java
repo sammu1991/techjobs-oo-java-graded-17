@@ -5,15 +5,13 @@ import java.util.Objects;
 public class Job {
 
 
-
-    private  int id;
+    private int id;
     private static int nextId = 1;
     private String name;
     private Employer employer;
     private Location location;
     private CoreCompetency coreCompetency;
     private PositionType positionType;
-
 
 
     public Job() {
@@ -100,6 +98,38 @@ public class Job {
     public int getId() {
         return id;
     }
+
+    @Override
+    public String toString() {
+        String newline = System.lineSeparator();
+       // System.out.println(employer.getValue());
+
+        if (this.name==null||name.isEmpty()) {
+            //name=
+                    name ="Data not available";
+        }
+            if(this.employer.getValue()==null||employer.getValue().isEmpty()) {
+
+                this.employer.setValue("Data not available");
+            }
+            if(this.location.getValue()==null||location.getValue().isEmpty()) {
+                this.location.setValue("Data not available");
+            }
+            if(this.positionType.getValue()==null||positionType.getValue().isEmpty()) {
+                this.positionType.setValue("Data not available");
+            }
+            if(this.coreCompetency.getValue()==null||coreCompetency.getValue().isEmpty()){
+                this.coreCompetency.setValue("Data not available");
+        }
+        return  newline + "ID: " + id +
+                newline + "Name: " + name +
+                newline + "Employer: " + employer +
+                newline + "Location: " + location +
+                newline + "Position Type: " + positionType +
+                newline + "Core Competency: " + coreCompetency +
+                newline;
+    }
+        //return newline + "ID:" + id + newline;
 
 
 }
