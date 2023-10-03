@@ -10,17 +10,16 @@ public class JobTest {
     //TODO: Create your unit tests here
 
 
-
     @Test
     public void testSettingJobId() {
-        Job job1= new Job();
-        Job job2= new Job();
+        Job job1 = new Job();
+        Job job2 = new Job();
         assertNotEquals(job1.getId(), job2.getId());
     }
 
     @Test
     public void testJobConstructorSetsAllFields() {
-        Job job=new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        Job job = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
 
         assertTrue(job.getName() instanceof String);
         assertTrue(job.getEmployer() instanceof Employer);
@@ -38,8 +37,8 @@ public class JobTest {
 
     @Test
     public void testJobsForEquality() {
-        Job job1=new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-        Job job2=new Job("Product taster", new Employer("AICME"), new Location("Thar"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        Job job1 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        Job job2 = new Job("Product taster", new Employer("AICME"), new Location("Thar"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
 
         Assert.assertFalse(job1.equals(job2));
 
@@ -47,7 +46,7 @@ public class JobTest {
 
     @Test
     public void testToStringStartsAndEndsWithNewLine() {
-        Job job1=new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        Job job1 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
         String expectedval = job1.toString();
         String newline = System.lineSeparator();
 
@@ -59,7 +58,7 @@ public class JobTest {
 
     @Test
     public void testToStringContainsCorrectLabelsAndData() {
-        Job job1=new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        Job job1 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
         String expectedval = job1.toString();
         System.out.println(expectedval);
 
@@ -73,14 +72,24 @@ public class JobTest {
 
     @Test
     public void testToStringHandlesEmptyField() {
-        Job job=new Job("dfdf", new Employer("hjgjhh"), new Location(""), new PositionType(""), new CoreCompetency(""));
-        String expectedval = job.toString();
-System.out.println(job);
-        assertTrue(expectedval.contains("Name: "));
-        assertTrue(expectedval.contains("Employer: "));
-        assertTrue(expectedval.contains("Location: "));
-        assertTrue(expectedval.contains("Position Type: "));
-        assertTrue(expectedval.contains("Core Competency: "));
+        Job job = new Job("dfdf", new Employer("hjgjhh"), new Location(""), new PositionType(""), new CoreCompetency(""));
+        String expectedvalue = job.toString();
+        System.out.println(expectedvalue);
+        assertTrue(expectedvalue.contains("Name: "));
+        assertTrue(expectedvalue.contains("Employer: "));
+        assertTrue(expectedvalue.contains("Location: Data not available"));
+        assertTrue(expectedvalue.contains("Position Type: Data not available"));
+        assertTrue(expectedvalue.contains("Core Competency: Data not available"));
+    }
+}
+
+
+
+
+
+
+
+
 
 
 
@@ -100,5 +109,4 @@ System.out.println(job);
 ////        assertTrue(expectedval.contains("Data not available"));
 //
 //
-    }
-}
+
